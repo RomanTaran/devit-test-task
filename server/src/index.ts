@@ -10,7 +10,9 @@ let server: any;
 mongoose.connect(config.mongoose.url).then(() => {
   logger.info('Connected to MongoDB');
 
-  //articleService.fetchArticlesFromRSS();
+  //initial downloading articles
+  articleService.fetchArticlesFromRSS();
+
   const job = new cron.CronJob('0 0 * * *', articleService.fetchArticlesFromRSS);
   job.start();
 

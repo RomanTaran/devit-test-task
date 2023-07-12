@@ -24,10 +24,10 @@ export const fetchArticlesFromRSS = async () => {
       });
 
       await article.save();
-      logger.info('Збережено статтю:', article.title);
+      logger.info('Article was downloaded:', item.title);
     }
   } catch (error) {
-    logger.error('Помилка при отриманні та збереженні статей:', error);
+    logger.error('Error downloading and saving articles', error);
   }
 };
 
